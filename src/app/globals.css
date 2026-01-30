@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background-primary: #ffffff;
+    --background-secondary: #f0f9ff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-main: #2563eb;
+    --accent-hover: #1d4ed8;
+    --border-color: #e2e8f0;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background_primary text-text_primary font-body antialiased;
+    font-feature-settings: "ss01", "ss02";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+/* High-contrast light theme */
+html {
+  color-scheme: light;
+}
+
+/* Subtle radial glows for depth */
+.glow-section {
+  position: relative;
+}
+
+.glow-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(37, 99, 235, 0.06) 0%,
+    transparent 50%
+  );
+  z-index: 0;
+}

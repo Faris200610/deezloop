@@ -1,0 +1,186 @@
+{
+    "meta": {
+        "title": "Dezloop | Digital Transformation Agency",
+        "lang": "ar",
+        "dir": "rtl",
+        "description": "نحول الأفكار المعقدة إلى حلول برمجية ذكية. تصميم، تطوير، وإبداع بلا حدود."
+    },
+    "theme": {
+        "mode": "dark",
+        "palette": {
+            "background_primary": "#0D1216",
+            "background_secondary": "#151B21",
+            "text_primary": "#FFFFFF",
+            "text_secondary": "#A0AAB5",
+            "accent_main": "#C1F0C1",
+            "accent_hover": "#98D998",
+            "border_color": "#2A343F"
+        },
+        "typography": {
+            "font_family_heading": "'Cairo', sans-serif",
+            "font_family_body": "'IBM Plex Sans Arabic', sans-serif",
+            "heading_weight": "700",
+            "body_weight": "400"
+        }
+    },
+    "navigation": [
+        {
+            "label": "الرئيسية",
+            "href": "#hero"
+        },
+        {
+            "label": "خدماتنا",
+            "href": "#services"
+        },
+        {
+            "label": "أعمالنا",
+            "href": "#portfolio"
+        },
+        {
+            "label": "تواصل معنا",
+            "href": "#contact",
+            "is_cta": true
+        }
+    ],
+    "sections": [
+        {
+            "id": "hero_section",
+            "type": "split_screen_hero",
+            "styles": {
+                "layout": "50_50_split",
+                "bg_overlay": "mesh_gradient_dark"
+            },
+            "content": {
+                "headline": "نبدأ بعميلك، وننتهي بنجاحك.",
+                "subheadline": "ليست مجرد خدمات منفردة، بل منظومة حلول رقمية متكاملة تصنع لك مكاناً في المستقبل.",
+                "cta_primary": {
+                    "text": "احجز استشارتك",
+                    "link": "#contact",
+                    "style": "solid_accent"
+                },
+                "cta_secondary": {
+                    "text": "شاهد أعمالنا",
+                    "link": "#portfolio",
+                    "style": "outline_light"
+                },
+                "floating_card": {
+                    "type": "video_glass_card",
+                    "content": "coding_timelapse.mp4",
+                    "caption": "كود نظيف، أداء عالي"
+                }
+            }
+        },
+        {
+            "id": "philosophy_section",
+            "type": "centered_statement",
+            "styles": {
+                "bg_color": "#0D1216",
+                "typography_size": "huge"
+            },
+            "content": {
+                "text": "نحن لا نبني مواقع إلكترونية فقط، نحن نبني تجارب رقمية تغير قواعد اللعبة.",
+                "highlighted_words": [
+                    "تجارب رقمية",
+                    "قواعد اللعبة"
+                ]
+            }
+        },
+        {
+            "id": "services_section",
+            "type": "bento_grid",
+            "headline": "حلول مصممة للنمو",
+            "items": [
+                {
+                    "icon": "code_bracket",
+                    "title": "تطوير مخصص (Custom Dev)",
+                    "description": "تخلص من قوالب البناء الجاهزة. نحول موقعك لمنصة قوية، سريعة، وقابلة للتوسع.",
+                    "grid_span": "col-span-2"
+                },
+                {
+                    "icon": "smartphone",
+                    "title": "تطبيقات الموبايل",
+                    "description": "تجربة مستخدم سلسة على iOS و Android.",
+                    "grid_span": "col-span-1"
+                },
+                {
+                    "icon": "shield_check",
+                    "title": "الأمن السيبراني",
+                    "description": "حماية بياناتك وعملائك بأحدث بروتوكولات الأمان.",
+                    "grid_span": "col-span-1"
+                },
+                {
+                    "icon": "paint_brush",
+                    "title": "UI/UX تصميم",
+                    "description": "واجهات عصرية تركز على رحلة العميل وتحقيق المبيعات.",
+                    "grid_span": "col-span-2"
+                }
+            ]
+        },
+        {
+            "id": "stats_section",
+            "type": "minimal_counters",
+            "items": [
+                {
+                    "label": "عميل سعيد",
+                    "value": "120+"
+                },
+                {
+                    "label": "مشروع مكتمل",
+                    "value": "85"
+                },
+                {
+                    "label": "سطر كود",
+                    "value": "1M+"
+                },
+                {
+                    "label": "سنوات خبرة",
+                    "value": "5"
+                }
+            ]
+        },
+        {
+            "id": "contact_section",
+            "type": "split_form",
+            "content": {
+                "headline": "هل أنت مستعد للنقلة القادمة؟",
+                "subheadline": "املأ النموذج وسنتواصل مع استراتيجية عمل مفصلة.",
+                "form_fields": [
+                    {
+                        "name": "fullname",
+                        "placeholder": "الاسم الكامل",
+                        "type": "text"
+                    },
+                    {
+                        "name": "email",
+                        "placeholder": "البريد الإلكتروني",
+                        "type": "email"
+                    },
+                    {
+                        "name": "project_type",
+                        "placeholder": "نوع المشروع",
+                        "type": "select",
+                        "options": [
+                            "موقع جديد",
+                            "تطوير تطبيق",
+                            "استشارة"
+                        ]
+                    },
+                    {
+                        "name": "message",
+                        "placeholder": "تحدث عن مشروعك...",
+                        "type": "textarea"
+                    }
+                ],
+                "button_text": "إرسال الطلب"
+            }
+        }
+    ],
+    "footer": {
+        "social_links": [
+            "linkedin",
+            "github",
+            "twitter"
+        ],
+        "copyright": "© 2026 Dezloop. All rights reserved."
+    }
+}
