@@ -3,17 +3,40 @@
 import { motion } from "framer-motion";
 import type { SplitFormSection } from "@/types/site-config";
 
+const EMAIL_TO = "Contact@dezloop.com";
+
 interface Props {
   section: SplitFormSection;
 }
 
-/**
- * Netlify Forms: إرسال عادي (بدون fetch) لتجنب 404.
- * النموذج يرسل إلى "/" و Netlify يعالجه ثم إعادة التوجيه إلى /thank-you.
- * في Netlify Dashboard: Form "contact" → Post-submit redirect → /thank-you
- */
 export function SplitForm({ section }: Props) {
   const { content } = section;
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const fullname = (data.get("fullname") as string) || "";
+    const email = (data.get("email") as string) || "";
+    const project_type = (data.get("project_type") as string) || "";
+    const message = (data.get("message") as string) || "";
+
+    const subject = encodeURIComponent(`رسالة من موقع Dezloop - ${fullname}`);
+    const body = encodeURIComponent(
+      [
+        `الاسم: ${fullname}`,
+        `البريد: ${email}`,
+        `نوع المشروع: ${project_type}`,
+        ``,
+        `الرسالة:`,
+        message,
+      ].join("\n")
+    );
+
+    const mailto = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+    window.location.href = mailto;
+  }
 
   return (
     <section id="contact" className="relative py-24 px-6 bg-background_secondary">
@@ -29,14 +52,7 @@ export function SplitForm({ section }: Props) {
         </h2>
         <p className="text-text_secondary mb-10">{content.subheadline}</p>
 
-        <form
-          name="contact"
-          method="POST"
-          action="/thank-you"
-          data-netlify="true"
-          className="space-y-5"
-        >
-          <input type="hidden" name="form-name" value="contact" />
+        <form onSubmit={handleSubmit} className="space-y-5">
           {content.form_fields.map((field) => (
             <div key={field.name}>
               {field.type === "textarea" ? (
