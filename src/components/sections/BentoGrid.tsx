@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Code2,
   Smartphone,
   ShieldCheck,
   Paintbrush,
+  MessageCircle,
+  ExternalLink,
   type LucideIcon,
 } from "lucide-react";
 import type { BentoGridSection } from "@/types/site-config";
@@ -15,6 +18,7 @@ const iconMap: Record<string, LucideIcon> = {
   smartphone: Smartphone,
   shield_check: ShieldCheck,
   paint_brush: Paintbrush,
+  message_circle: MessageCircle,
 };
 
 interface Props {
@@ -59,25 +63,56 @@ export function BentoGrid({ section }: Props) {
         >
           {items.map((card, index) => {
             const Icon = iconMap[card.icon] ?? Code2;
-            return (
-              <motion.article
-                key={index}
-                variants={item}
-                className={`rounded-2xl bg-white border border-border_color shadow-lg shadow-slate-200 p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:border-accent_main/30 ${card.grid_span}`}
-              >
+            const isLink = Boolean(card.link);
+            const className = `rounded-2xl bg-white border border-border_color shadow-lg shadow-slate-200 p-6 lg:p-8 transition-all duration-300 hover:shadow-xl hover:border-accent_main/30 ${card.grid_span}`;
+            const content = (
+              <>
                 <div className="flex items-start gap-4">
                   <div className="shrink-0 w-12 h-12 rounded-xl bg-accent_main/10 flex items-center justify-center text-accent_main">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xl text-text_primary mb-2">
-                      {card.title}
-                    </h3>
-                    <p className="text-text_secondary leading-relaxed">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="font-heading font-bold text-xl text-text_primary">
+                        {card.title}
+                      </h3>
+                      {card.ownedByDezloop && (
+                        <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent_main/15 text-accent_main border border-accent_main/30">
+                          Owned by Dezloop
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-text_secondary leading-relaxed mt-2">
                       {card.description}
                     </p>
+                    {isLink && (
+                      <span className="inline-flex items-center gap-1 mt-3 text-accent_main text-sm font-medium">
+                        <ExternalLink className="w-4 h-4" />
+                        زيارة الموقع
+                      </span>
+                    )}
                   </div>
                 </div>
+              </>
+            );
+            return (
+              <motion.article
+                key={index}
+                variants={item}
+                className={className}
+              >
+                {isLink ? (
+                  <Link
+                    href={card.link!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full"
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  content
+                )}
               </motion.article>
             );
           })}

@@ -113,6 +113,14 @@
                     "title": "UI/UX تصميم",
                     "description": "واجهات عصرية تركز على رحلة العميل وتحقيق المبيعات.",
                     "grid_span": "col-span-2"
+                },
+                {
+                    "icon": "message_circle",
+                    "title": "Dezzwork",
+                    "description": "منصة ذكية للتوظيف والخدمات عبر واتساب",
+                    "grid_span": "col-span-2",
+                    "link": "https://dezzwork.netlify.app",
+                    "ownedByDezloop": true
                 }
             ]
         },

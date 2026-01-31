@@ -80,6 +80,8 @@ export interface BentoGridSection extends BaseSection {
     title: string;
     description: string;
     grid_span: string;
+    link?: string;
+    ownedByDezloop?: boolean;
   }>;
 }
 
